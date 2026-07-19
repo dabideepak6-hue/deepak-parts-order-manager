@@ -1,0 +1,11 @@
+{
+  "name": "Deepak Parts Order Manager",
+  "short_name": "Parts Manager",
+  "description": "Offline Spare Parts Order Management System",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#d71920",
+  "orientation": "portrait",
+  "icons": []
+}
