@@ -1,46 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deepak Parts Order Manager</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepak Parts Order Manager</title>
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#d71920">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <header class="header">
-    <h1>Deepak Parts Order Manager</h1>
-    <p>Spare Parts Order Tracking System</p>
+
+<div class="logo">
+<h1>📦 Deepak Parts Order Manager</h1>
+<p>Offline Spare Parts Order Tracking System</p>
+</div>
+
+<div class="header-buttons">
+<button id="exportCSV">📤 Export CSV</button>
+<button id="printData">🖨 Print</button>
+<button id="darkModeBtn">🌙</button>
+</div>
+
 </header>
 
-<main id="app">
+<section class="dashboard">
 
-    <!-- Dashboard -->
-    <section class="dashboard">
-        <div class="card">
-            <h2 id="totalOrders">0</h2>
-            <p>Total Orders</p>
-        </div>
+<div class="card">
+<h2 id="totalOrders">0</h2>
+<p>Total Orders</p>
+</div>
 
-        <div class="card">
-            <h2 id="pendingOrders">0</h2>
-            <p>Pending</p>
-        </div>
+<div class="card">
+<h2 id="pendingOrders">0</h2>
+<p>Pending</p>
+</div>
 
-        <div class="card">
-            <h2 id="deliveredOrders">0</h2>
-            <p>Delivered</p>
-        </div>
-    </section>
+<div class="card">
+<h2 id="orderedOrders">0</h2>
+<p>Ordered</p>
+</div>
 
-</main>
+<div class="card">
+<h2 id="deliveredOrders">0</h2>
+<p>Delivered</p>
+</div>
+
+<div class="card">
+<h2 id="cancelledOrders">0</h2>
+<p>Cancelled</p>
+</div>
+
+</section>
+
+<section class="search-area">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search by DMS Order, Customer, Mobile or Part Number">
+
+<select id="statusFilter">
+<option value="">All Status</option>
+<option value="Pending">Pending</option>
+<option value="Ordered">Ordered</option>
+<option value="Delivered">Delivered</option>
+<option value="Cancelled">Cancelled</option>
+</select>
+
+</section>
+
+<section class="order-form">
+
+<h2>➕ New Parts Order</h2>
+
+<form id="orderForm">
+
+<input type="text" id="dmsOrderNo" placeholder="DMS Order No." required>
+
+<input type="text" id="customerName" placeholder="Customer Name" required>
+
+<input type="tel" id="mobile" placeholder="Mobile Number" maxlength="10" required>
+
+<input type="text" id="vehicleModel" placeholder="Vehicle Model">
+
+<input type="text" id="partNumber" placeholder="Part Number" required>
+
+<input type="text" id="partName" placeholder="Part Name" required>
+
+<input type="number" id="quantity" placeholder="Quantity" value="1" min="1">
+
+<input type="date" id="orderDate">
+
+<input type="date" id="expectedDate">
+
+<select id="status">
+<option value="Pending">Pending</option>
+<option value="Ordered">Ordered</option>
+<option value="Delivered">Delivered</option>
+<option value="Cancelled">Cancelled</option>
+</select>
+
+<textarea id="remarks" placeholder="Remarks"></textarea>
+
+<button type="submit">
+💾 Save Order
+</button>
+
+</form>
+
+</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepak Parts Order Manager</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#d71920">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+
+<div class="logo">
+<h1>📦 Deepak Parts Order Manager</h1>
+<p>Offline Spare Parts Order Tracking System</p>
+</div>
+
+<div class="header-buttons">
+<button id="exportCSV">📤 Export CSV</button>
+<button id="printData">🖨 Print</button>
+<button id="darkModeBtn">🌙</button>
+</div>
+
+</header>
+
+<section class="dashboard">
+
+<div class="card">
+<h2 id="totalOrders">0</h2>
+<p>Total Orders</p>
+</div>
+
+<div class="card">
+<h2 id="pendingOrders">0</h2>
+<p>Pending</p>
+</div>
+
+<div class="card">
+<h2 id="orderedOrders">0</h2>
+<p>Ordered</p>
+</div>
+
+<div class="card">
+<h2 id="deliveredOrders">0</h2>
+<p>Delivered</p>
+</div>
+
+<div class="card">
+<h2 id="cancelledOrders">0</h2>
+<p>Cancelled</p>
+</div>
+
+</section>
+
+<section class="search-area">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search by DMS Order, Customer, Mobile or Part Number">
+
+<select id="statusFilter">
+<option value="">All Status</option>
+<option value="Pending">Pending</option>
+<option value="Ordered">Ordered</option>
+<option value="Delivered">Delivered</option>
+<option value="Cancelled">Cancelled</option>
+</select>
+
+</section>
+
+<section class="order-form">
+
+<h2>➕ New Parts Order</h2>
+
+<form id="orderForm">
+
+<input type="text" id="dmsOrderNo" placeholder="DMS Order No." required>
+
+<input type="text" id="customerName" placeholder="Customer Name" required>
+
+<input type="tel" id="mobile" placeholder="Mobile Number" maxlength="10" required>
+
+<input type="text" id="vehicleModel" placeholder="Vehicle Model">
+
+<input type="text" id="partNumber" placeholder="Part Number" required>
+
+<input type="text" id="partName" placeholder="Part Name" required>
+
+<input type="number" id="quantity" placeholder="Quantity" value="1" min="1">
+
+<input type="date" id="orderDate">
+
+<input type="date" id="expectedDate">
+
+<select id="status">
+<option value="Pending">Pending</option>
+<option value="Ordered">Ordered</option>
+<option value="Delivered">Delivered</option>
+<option value="Cancelled">Cancelled</option>
+</select>
+
+<textarea id="remarks" placeholder="Remarks"></textarea>
+
+<button type="submit">
+💾 Save Order
+</button>
+
+</form>
+
+</section>
+<!-- Loading Overlay -->
+<div id="loadingScreen" class="loading-screen" style="display:none;">
+    <div class="loader"></div>
+    <p>Loading...</p>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast"></div>
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+
+<!-- Register Service Worker -->
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("Service Worker Registered"))
+        .catch(err => console.log(err));
+    });
+}
+</script>
 
 </body>
 </html>
