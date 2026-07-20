@@ -1,7 +1,9 @@
-/* ===========================
-   Deepak Parts Order Manager
-   style.css - Part 1
-=========================== */
+/* =========================================================
+   DEEPAK DABI SMART PARTS AI V10
+   STYLE.CSS — PART 1
+========================================================= */
+
+/* RESET */
 
 *{
     margin:0;
@@ -10,463 +12,1675 @@
     font-family:'Poppins',sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    background:#f4f6f9;
-    color:#222;
+
+    background:#07090d;
+    color:#ffffff;
+    overflow-x:hidden;
+
 }
 
-/* Header */
 
-.header{
-    background:#d71920;
-    color:#fff;
-    padding:18px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:15px;
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+    width:10px;
 }
 
-.logo h1{
-    font-size:28px;
+::-webkit-scrollbar-track{
+    background:#10151d;
 }
 
-.logo p{
-    font-size:14px;
-    margin-top:5px;
+::-webkit-scrollbar-thumb{
+    background:#d60000;
+    border-radius:50px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#ff3b3b;
+}
+
+
+/* ===========================
+   ANIMATED BACKGROUND
+=========================== */
+
+.bg-animation{
+
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-2;
+
+    background:
+    radial-gradient(circle at top,#8d0000,#050505);
+
+}
+
+.bg-animation span{
+
+    position:absolute;
+
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.08);
+
+    animation:
+    floating 20s linear infinite;
+
+}
+
+
+.bg-animation span:nth-child(1){
+
+left:5%;
+top:90%;
+
+animation-duration:18s;
+
+}
+
+.bg-animation span:nth-child(2){
+
+left:18%;
+top:75%;
+
+animation-duration:25s;
+
+}
+
+.bg-animation span:nth-child(3){
+
+left:30%;
+top:95%;
+
+animation-duration:15s;
+
+}
+
+.bg-animation span:nth-child(4){
+
+left:48%;
+top:80%;
+
+animation-duration:20s;
+
+}
+
+.bg-animation span:nth-child(5){
+
+left:65%;
+top:92%;
+
+animation-duration:16s;
+
+}
+
+.bg-animation span:nth-child(6){
+
+left:78%;
+top:85%;
+
+animation-duration:28s;
+
+}
+
+.bg-animation span:nth-child(7){
+
+left:90%;
+top:95%;
+
+animation-duration:17s;
+
+}
+
+.bg-animation span:nth-child(8){
+
+left:55%;
+top:70%;
+
+animation-duration:22s;
+
+}
+
+
+/* ===========================
+   LOADER
+=========================== */
+
+#loader{
+
+position:fixed;
+
+inset:0;
+
+background:#050505;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+z-index:99999;
+
+}
+
+
+.loader-bg{
+
+position:absolute;
+
+width:350px;
+height:350px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+rgba(255,0,0,.4),
+transparent);
+
+filter:blur(40px);
+
+animation:pulseGlow 2s infinite;
+
+}
+
+
+.logo{
+
+font-size:40px;
+
+font-weight:800;
+
+letter-spacing:3px;
+
+color:white;
+
+margin-top:25px;
+
+text-shadow:
+
+0 0 25px red;
+
+}
+
+
+#loader h2{
+
+margin-top:5px;
+
+font-weight:600;
+
+color:#ffb000;
+
+}
+
+
+#loader p{
+
+opacity:.7;
+
+margin-top:10px;
+
+letter-spacing:2px;
+
+}
+
+
+/* ===========================
+   GEARS
+=========================== */
+
+.gear{
+
+font-size:70px;
+
+position:absolute;
+
+filter:drop-shadow(0 0 20px red);
+
+}
+
+.gear1{
+
+animation:rotateGear 5s linear infinite;
+
+}
+
+.gear2{
+
+margin-left:-170px;
+
+animation:rotateGearReverse 6s linear infinite;
+
+}
+
+.gear3{
+
+margin-left:170px;
+
+animation:rotateGear 8s linear infinite;
+
+}
+
+
+/* ===========================
+   LOADING BAR
+=========================== */
+
+.loading-bar{
+
+margin-top:30px;
+
+width:280px;
+
+height:8px;
+
+background:#222;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+.loading-fill{
+
+height:100%;
+
+width:0;
+
+background:
+
+linear-gradient(90deg,
+red,
+orange,
+yellow);
+
+animation:loading 3s linear forwards;
+
+}
+
+
+/* ===========================
+   HEADER
+=========================== */
+
+header{
+
+position:sticky;
+
+top:0;
+
+z-index:500;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px 30px;
+
+background:
+
+rgba(10,10,10,.7);
+
+backdrop-filter:blur(18px);
+
+border-bottom:
+
+1px solid rgba(255,255,255,.08);
+
+}
+
+
+.logo-box h1{
+
+font-size:28px;
+
+font-weight:700;
+
+color:white;
+
+}
+
+.logo-box p{
+
+opacity:.8;
+
+margin-top:5px;
+
+color:#ffb000;
+
 }
 
 .header-buttons{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
+
+display:flex;
+
+gap:10px;
+
 }
 
-.header button{
-    background:#fff;
-    color:#d71920;
-    border:none;
-    padding:10px 18px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
+.header-buttons button{
+
+padding:10px 18px;
+
+border:none;
+
+border-radius:12px;
+
+background:#d60000;
+
+color:white;
+
+cursor:pointer;
+
+transition:.3s;
+
 }
 
-.header button:hover{
-    background:#ffe6e6;
+.header-buttons button:hover{
+
+transform:translateY(-2px);
+
+box-shadow:0 0 15px red;
+
 }
 
-/* Dashboard */
+
+/* ===========================
+   KEYFRAMES
+=========================== */
+
+@keyframes rotateGear{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes rotateGearReverse{
+
+from{
+
+transform:rotate(360deg);
+
+}
+
+to{
+
+transform:rotate(0deg);
+
+}
+
+}
+
+@keyframes pulseGlow{
+
+50%{
+
+transform:scale(1.2);
+
+}
+
+}
+
+@keyframes loading{
+
+100%{
+
+width:100%;
+
+}
+
+}
+
+@keyframes floating{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:
+
+translateY(-120vh)
+rotate(360deg);
+
+}
+
+}
+/* =========================================================
+   DEEPAK DABI SMART PARTS AI V10
+   STYLE.CSS — PART 2
+=========================================================*/
+
+/* ===========================
+   DASHBOARD
+=========================== */
 
 .dashboard{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-    gap:15px;
-    padding:20px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+padding:25px;
+
 }
 
 .card{
-    background:#fff;
-    padding:20px;
-    border-radius:12px;
-    text-align:center;
-    box-shadow:0 3px 10px rgba(0,0,0,.12);
+
+position:relative;
+
+overflow:hidden;
+
+padding:25px;
+
+border-radius:24px;
+
+background:
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border:
+
+1px solid rgba(255,255,255,.08);
+
+transition:.35s;
+
+cursor:pointer;
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.35);
+
+}
+
+.card:hover{
+
+transform:
+translateY(-8px)
+scale(1.02);
+
+box-shadow:
+
+0 25px 45px rgba(255,0,0,.30);
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+top:-80px;
+right:-80px;
+
+width:180px;
+height:180px;
+
+border-radius:50%;
+
+background:
+
+rgba(255,255,255,.06);
+
 }
 
 .card h2{
-    font-size:34px;
-    color:#d71920;
+
+font-size:42px;
+
+font-weight:800;
+
+margin-bottom:8px;
+
 }
 
 .card p{
-    margin-top:8px;
-    font-weight:600;
+
+opacity:.8;
+
+font-size:15px;
+
 }
 
-/* Search */
+.total{
 
-.search-area{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-    padding:20px;
+border-left:6px solid #00e5ff;
+
 }
 
-.search-area input,
-.search-area select{
-    flex:1;
-    min-width:220px;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:15px;
+.pending{
+
+border-left:6px solid #ffc107;
+
 }
 
-/* Order Form */
+.ordered{
 
-.order-form{
-    background:#fff;
-    margin:20px;
-    padding:20px;
-    border-radius:12px;
-    box-shadow:0 3px 10px rgba(0,0,0,.12);
+border-left:6px solid #00b0ff;
+
 }
 
-.order-form h2{
-    margin-bottom:15px;
+.delivered{
+
+border-left:6px solid #00e676;
+
 }
 
-.order-form form{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:15px;
+.today{
+
+border-left:6px solid #ff9800;
+
 }
 
-.order-form input,
-.order-form select,
-.order-form textarea{
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:15px;
+.success{
+
+border-left:6px solid #ff1744;
+
 }
 
-.order-form textarea{
-    min
-    /* ===========================
-   style.css - Part 2
+/* ===========================
+   CONTROL PANEL
 =========================== */
 
-/* Orders Table */
+.control-panel{
 
-.orders-section{
-    margin:20px;
-    background:#fff;
-    border-radius:12px;
-    padding:20px;
-    box-shadow:0 3px 10px rgba(0,0,0,.12);
+display:flex;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+padding:0 25px 25px;
+
+align-items:center;
+
 }
 
-.orders-section h2{
-    margin-bottom:15px;
+.search-box{
+
+flex:2;
+
+min-width:280px;
+
+}
+
+.search-box input{
+
+width:100%;
+
+padding:15px 18px;
+
+border-radius:16px;
+
+border:none;
+
+outline:none;
+
+background:#1a1d24;
+
+color:#fff;
+
+font-size:16px;
+
+}
+
+.filters{
+
+display:flex;
+
+gap:12px;
+
+flex-wrap:wrap;
+
+}
+
+.filters select,
+.filters input,
+.filters button{
+
+padding:14px;
+
+border:none;
+
+border-radius:14px;
+
+background:#1a1d24;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+.filters button{
+
+background:#d60000;
+
+transition:.3s;
+
+}
+
+.filters button:hover{
+
+transform:translateY(-2px);
+
+}
+
+/* ===========================
+   FORM
+=========================== */
+
+.form-section{
+
+padding:0 25px 25px;
+
+}
+
+.form-card{
+
+background:
+
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border-radius:25px;
+
+padding:30px;
+
+border:
+
+1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.30);
+
+}
+
+.form-card h2{
+
+margin-bottom:20px;
+
+font-size:28px;
+
+}
+
+.form-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:18px;
+
+}
+
+.form-grid label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-size:14px;
+
+opacity:.85;
+
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea{
+
+width:100%;
+
+padding:14px;
+
+border:none;
+
+outline:none;
+
+border-radius:14px;
+
+background:#181b22;
+
+color:white;
+
+font-size:15px;
+
+transition:.3s;
+
+}
+
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus{
+
+box-shadow:
+
+0 0 0 2px red;
+
+}
+
+.full-width{
+
+grid-column:1/-1;
+
+}
+
+/* ===========================
+   SCAN GROUP
+=========================== */
+
+.scan-group{
+
+display:flex;
+
+gap:10px;
+
+}
+
+.scan-group input{
+
+flex:1;
+
+}
+
+.scan-group button{
+
+width:60px;
+
+border:none;
+
+border-radius:14px;
+
+background:#2962ff;
+
+color:white;
+
+font-size:22px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.scan-group button:hover{
+
+transform:scale(1.08);
+
+}
+
+/* ===========================
+   ACTION BUTTONS
+=========================== */
+
+.action-buttons{
+
+display:flex;
+
+gap:15px;
+
+margin-top:25px;
+
+flex-wrap:wrap;
+
+}
+
+.action-buttons button{
+
+flex:1;
+
+padding:16px;
+
+border:none;
+
+border-radius:16px;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.35s;
+
+color:white;
+
+}
+
+#voiceBtn{
+
+background:#7b1fa2;
+
+}
+
+#saveOrderBtn{
+
+background:#00c853;
+
+}
+
+#resetFormBtn{
+
+background:#d60000;
+
+}
+
+.action-buttons button:hover{
+
+transform:
+
+translateY(-4px);
+
+box-shadow:
+
+0 15px 25px rgba(0,0,0,.35);
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.dashboard{
+
+grid-template-columns:1fr;
+
+}
+
+.form-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.action-buttons{
+
+flex-direction:column;
+
+}
+
+.filters{
+
+width:100%;
+
+}
+
+.search-box{
+
+width:100%;
+
+}
+
+}
+/* ==========================================================
+   DEEPAK DABI SMART PARTS AI V10
+   STYLE.CSS — PART 3
+==========================================================*/
+
+/* ======================================
+   TOOLBAR
+====================================== */
+
+.toolbar{
+
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+
+padding:25px;
+
+}
+
+.toolbar button{
+
+padding:15px 22px;
+
+border:none;
+
+border-radius:15px;
+
+cursor:pointer;
+
+font-weight:600;
+
+transition:.35s;
+
+color:white;
+
+}
+
+.primary-btn{
+
+background:#2962ff;
+
+}
+
+.secondary-btn{
+
+background:#2b2f36;
+
+}
+
+.danger-btn{
+
+background:#d50000;
+
+}
+
+.toolbar button:hover{
+
+transform:
+translateY(-4px);
+
+box-shadow:
+0 15px 25px rgba(0,0,0,.35);
+
+}
+
+/* ======================================
+   TABLE
+====================================== */
+
+.table-section{
+
+padding:25px;
+
+}
+
+.table-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:20px;
+
+}
+
+.table-header h2{
+
+font-size:28px;
+
+}
+
+#liveClock{
+
+color:#00e5ff;
+
+font-weight:600;
+
 }
 
 .table-responsive{
-    width:100%;
-    overflow-x:auto;
+
+overflow:auto;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.06);
+
+backdrop-filter:blur(18px);
+
 }
 
 table{
-    width:100%;
-    border-collapse:collapse;
-    min-width:1200px;
+
+width:100%;
+
+border-collapse:collapse;
+
+min-width:1300px;
+
 }
 
 thead{
-    background:#d71920;
-    color:#fff;
+
+background:#c40000;
+
 }
 
-th,
-td{
-    padding:12px;
-    text-align:center;
-    border-bottom:1px solid #ddd;
-    white-space:nowrap;
+thead th{
+
+padding:18px;
+
+font-size:15px;
+
+text-align:center;
+
+color:white;
+
+}
+
+tbody td{
+
+padding:16px;
+
+text-align:center;
+
+border-bottom:
+
+1px solid rgba(255,255,255,.08);
+
+}
+
+tbody tr{
+
+transition:.3s;
+
 }
 
 tbody tr:hover{
-    background:#f5f5f5;
+
+background:
+rgba(255,255,255,.06);
+
 }
 
-/* Status */
+/* ======================================
+   STATUS BADGES
+====================================== */
 
-.status-pending{
-    color:#ff9800;
-    font-weight:bold;
+.status-badge{
+
+padding:8px 15px;
+
+border-radius:50px;
+
+font-size:13px;
+
+font-weight:600;
+
+display:inline-block;
+
 }
 
-.status-ordered{
-    color:#1976d2;
-    font-weight:bold;
+.pending-status{
+
+background:#ffc107;
+
+color:#000;
+
 }
 
-.status-delivered{
-    color:#2e7d32;
-    font-weight:bold;
+.ordered-status{
+
+background:#2196f3;
+
 }
 
-.status-cancelled{
-    color:#d32f2f;
-    font-weight:bold;
+.delivered-status{
+
+background:#00c853;
+
 }
 
-/* Action Buttons */
+.cancelled-status{
+
+background:#d50000;
+
+}
+
+/* ======================================
+   TABLE BUTTONS
+====================================== */
 
 .action-btn{
-    border:none;
-    padding:8px 12px;
-    border-radius:6px;
-    cursor:pointer;
-    margin:2px;
-    font-size:14px;
+
+padding:8px 12px;
+
+margin:3px;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+transition:.3s;
+
+color:white;
+
+font-size:14px;
+
 }
 
 .edit-btn{
-    background:#2196f3;
-    color:#fff;
+
+background:#2196f3;
+
 }
 
 .delete-btn{
-    background:#f44336;
-    color:#fff;
+
+background:#d50000;
+
 }
 
 .whatsapp-btn{
-    background:#25D366;
-    color:#fff;
+
+background:#25D366;
+
 }
 
-/* Modal */
+.print-btn{
+
+background:#ff9800;
+
+}
+
+.action-btn:hover{
+
+transform:scale(1.08);
+
+}
+
+/* ======================================
+   MODALS
+====================================== */
 
 .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.45);
-    justify-content:center;
-    align-items:center;
-    z-index:999;
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:
+rgba(0,0,0,.7);
+
+z-index:9999;
+
+justify-content:center;
+
+align-items:center;
+
 }
 
 .modal-content{
-    background:#fff;
-    width:95%;
-    max-width:700px;
-    padding:20px;
-    border-radius:12px;
-}
 
-.modal-content form{
-    display:grid;
-    gap:12px;
+width:95%;
+
+max-width:700px;
+
+background:#11151d;
+
+padding:30px;
+
+border-radius:25px;
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.5);
+
+animation:modalOpen .35s;
+
 }
 
 .modal-content input,
 .modal-content select,
 .modal-content textarea{
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:8px;
+
+width:100%;
+
+padding:14px;
+
+margin:8px 0;
+
+border:none;
+
+border-radius:12px;
+
+background:#1b2028;
+
+color:white;
+
 }
 
-.modal-buttons{
+.modal-content button{
+
+margin-top:15px;
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:15px;
+
+background:#00c853;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+#closeModal{
+
+float:right;
+
+font-size:30px;
+
+cursor:pointer;
+
+}
+
+.small{
+
+max-width:420px;
+
+text-align:center;
+
+}
+
+.modal-actions{
+
+display:flex;
+
+gap:15px;
+
+margin-top:20px;
+
+}
+
+.modal-actions button{
+
+flex:1;
+
+}
+
+@keyframes modalOpen{
+
+from{
+
+transform:translateY(-40px);
+
+opacity:0;
+
+}
+
+to{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+}
+
+/* ======================================
+   TOAST
+====================================== */
+
+#toast{
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+padding:16px 24px;
+
+background:#00c853;
+
+border-radius:15px;
+
+display:none;
+
+font-weight:600;
+
+z-index:99999;
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.35);
+
+animation:toastAnim .4s;
+
+}
+
+@keyframes toastAnim{
+
+from{
+
+transform:translateY(30px);
+
+opacity:0;
+
+}
+
+to{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+}
+/* ==========================================================
+   DEEPAK DABI SMART PARTS AI V10
+   STYLE.CSS — PART 4
+==========================================================*/
+
+/* ======================================
+   FLOATING ACTION BUTTONS
+====================================== */
+
+.fab-container{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    z-index:1000;
+}
+
+.fab{
+    width:62px;
+    height:62px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:24px;
+    color:#fff;
+    background:linear-gradient(135deg,#d60000,#ff3d00);
+    box-shadow:0 10px 30px rgba(214,0,0,.45);
+    transition:.3s;
+    animation:fabPulse 2.5s infinite;
+}
+
+.fab:hover{
+    transform:scale(1.12) rotate(12deg);
+}
+
+@keyframes fabPulse{
+    50%{
+        box-shadow:0 0 35px rgba(255,0,0,.8);
+    }
+}
+
+/* ======================================
+   AI PANEL
+====================================== */
+
+.ai-panel{
+    padding:25px;
+}
+
+.ai-card{
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(18px);
+    border-radius:24px;
+    padding:25px;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.ai-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.online-dot{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#00e676;
+    box-shadow:0 0 18px #00e676;
+}
+
+.ai-messages{
+    max-height:260px;
+    overflow:auto;
+    padding:10px 0;
+}
+
+.ai-message{
+    background:#181c24;
+    padding:14px;
+    margin-bottom:12px;
+    border-radius:14px;
+}
+
+.ai-input{
     display:flex;
     gap:10px;
-    flex-wrap:wrap;
+    margin-top:18px;
 }
 
-.modal-buttons button{
+.ai-input input{
     flex:1;
-    padding:12px;
+    padding:14px;
     border:none;
-    border-radius:8px;
+    border-radius:14px;
+    background:#1d222b;
+    color:#fff;
+}
+
+.ai-input button{
+    padding:14px 22px;
+    border:none;
+    border-radius:14px;
+    background:#2962ff;
+    color:#fff;
     cursor:pointer;
 }
 
-/* Footer */
+/* ======================================
+   ANALYTICS
+====================================== */
 
-.footer{
-    text-align:center;
-    padding:20px;
-    color:#666;
+.analytics{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
+    padding:25px;
 }
 
-/* Loading */
+.analytics-card{
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(18px);
+    border-radius:24px;
+    padding:25px;
+}
 
-.loading-screen{
+.analytics-card canvas{
+    width:100%;
+    height:260px;
+}
+
+/* ======================================
+   NOTIFICATIONS
+====================================== */
+
+.notification-panel{
+    padding:25px;
+}
+
+.notification-panel ul{
+    list-style:none;
+    margin-top:15px;
+}
+
+.notification-panel li{
+    background:#181c24;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+
+/* ======================================
+   FOOTER
+====================================== */
+
+footer{
+    margin-top:40px;
+    padding:30px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+    background:#0f1116;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-right button{
+    margin-left:10px;
+    padding:12px 18px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    background:#d60000;
+    color:#fff;
+}
+
+/* ======================================
+   INSTALL POPUP
+====================================== */
+
+.install-popup{
+    display:none;
     position:fixed;
     inset:0;
-    background:#fff;
-    display:flex;
-    flex-direction:column;
+    background:rgba(0,0,0,.75);
     justify-content:center;
     align-items:center;
-    z-index:9999;
+    z-index:99999;
 }
 
-.loader{
-    width:45px;
-    height:45px;
-    border:5px solid #ddd;
-    border-top-color:#d71920;
-    border-radius:50%;
-    animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-/* Toast */
-
-.toast{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    background:#333;
-    color:#fff;
-    padding:12px 18px;
-    border-radius:8px;
-    opacity:0;
-    transition:.3s;
-}
-
-/* Mobile */
-
-@media(max-width:768px){
-
-.header{
-    flex-direction:column;
+.install-card{
+    width:92%;
+    max-width:420px;
+    background:#171b22;
+    padding:30px;
+    border-radius:24px;
     text-align:center;
 }
 
-.header-buttons{
-    justify-content:center;
+.install-card button{
+    width:100%;
+    margin-top:12px;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
 }
 
-.dashboard{
-    grid-template-columns:1fr 1fr;
+#installNowBtn{
+    background:#00c853;
+    color:#fff;
 }
 
-.order-form form{
-    grid-template-columns:1fr;
+#installLaterBtn{
+    background:#2b2f36;
+    color:#fff;
 }
 
-}
-    /* ===========================
-   style.css - Part 3 (Final)
-=========================== */
-
-/* ---------- Dark Mode ---------- */
+/* ======================================
+   DARK MODE SUPPORT
+====================================== */
 
 body.dark{
-    background:#121212;
-    color:#f5f5f5;
-}
-
-body.dark .header{
-    background:#000;
+    background:#020202;
 }
 
 body.dark .card,
-body.dark .order-form,
-body.dark .orders-section,
-body.dark .modal-content{
-    background:#1f1f1f;
-    color:#fff;
+body.dark .form-card,
+body.dark .analytics-card,
+body.dark .ai-card{
+    background:#121212;
 }
 
-body.dark input,
-body.dark select,
-body.dark textarea{
-    background:#2d2d2d;
-    color:#fff;
-    border:1px solid #444;
-}
+/* ======================================
+   MOBILE
+====================================== */
 
-body.dark table{
-    color:#fff;
-}
+@media(max-width:768px){
 
-body.dark tbody tr:hover{
-    background:#2b2b2b;
-}
-
-body.dark .footer{
-    color:#ccc;
-}
-
-/* ---------- Buttons ---------- */
-
-button{
-    transition:.25s;
-}
-
-button:hover{
-    transform:translateY(-2px);
-}
-
-button:active{
-    transform:scale(.96);
-}
-
-/* ---------- Inputs ---------- */
-
-input:focus,
-select:focus,
-textarea:focus{
-    outline:none;
-    border-color:#d71920;
-    box-shadow:0 0 8px rgba(215,25,32,.25);
-}
-
-/* ---------- Scrollbar ---------- */
-
-::-webkit-scrollbar{
-    width:10px;
-    height:10px;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#d71920;
-    border-radius:10px;
-}
-
-::-webkit-scrollbar-track{
-    background:#e8e8e8;
-}
-
-/* ---------- Animation ---------- */
-
-.card,
-.order-form,
-.orders-section{
-    animation:fadeIn .5s ease;
-}
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(15px);
+    .toolbar{
+        flex-direction:column;
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
+
+    .table-header{
+        flex-direction:column;
+        gap:12px;
     }
-}
 
-/* ---------- Utility ---------- */
+    .fab{
+        width:56px;
+        height:56px;
+        font-size:20px;
+    }
 
-.hidden{
-    display:none !important;
-}
+    footer{
+        flex-direction:column;
+        text-align:center;
+    }
 
-.text-center{
-    text-align:center;
-}
-
-.mt-10{
-    margin-top:10px;
-}
-
-.mt-20{
-    margin-top:20px;
-}
-
-.mb-20{
-    margin-bottom:20px;
+    .ai-input{
+        flex-direction:column;
+    }
 }
