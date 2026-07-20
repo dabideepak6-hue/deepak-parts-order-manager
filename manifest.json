@@ -1,11 +1,60 @@
 {
-  "name": "Deepak Parts Order Manager",
-  "short_name": "Parts Manager",
-  "description": "Offline Spare Parts Order Management System",
+  "name": "Deepak Dabi Smart Parts AI V10",
+  "short_name": "DD Parts AI",
+  "description": "Offline Smart Parts Order Management System with DMS Orders, Dashboard, WhatsApp, CSV Export and PWA Support.",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#d71920",
   "orientation": "portrait",
-  "icons": []
+  "background_color": "#0b0b0b",
+  "theme_color": "#d60000",
+  "lang": "en-IN",
+
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+
+  "shortcuts": [
+    {
+      "name": "New Order",
+      "short_name": "Order",
+      "description": "Create a new DMS order",
+      "url": "./index.html#new-order",
+      "icons": [
+        {
+          "src": "assets/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "Open dashboard",
+      "url": "./index.html#dashboard",
+      "icons": [
+        {
+          "src": "assets/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }
