@@ -1,257 +1,878 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deepak Parts Order Manager</title>
 
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
-  <meta name="theme-color" content="#d71920">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Deepak Dabi Smart Parts AI V10</title>
+
+<meta name="theme-color" content="#d60000">
+<meta name="description" content="Deepak Dabi Smart Parts AI V10">
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="icon" href="assets/icon-192.png">
+
 </head>
+
 <body>
 
-<header class="header">
+<!-- ========================= -->
+<!-- Loading Screen -->
+<!-- ========================= -->
 
-<div class="logo">
-<h1>📦 Deepak Parts Order Manager</h1>
-<p>Offline Spare Parts Order Tracking System</p>
+<div id="loader">
+
+<div class="loader-bg"></div>
+
+<div class="gear gear1">⚙️</div>
+<div class="gear gear2">⚙️</div>
+<div class="gear gear3">⚙️</div>
+
+<h1 class="logo">
+
+DEEPAK DABI
+
+</h1>
+
+<h2>
+
+SMART PARTS AI
+
+</h2>
+
+<p>
+
+COMMAND CENTER V10
+
+</p>
+
+<div class="loading-bar">
+
+<div class="loading-fill"></div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- Animated Background -->
+<!-- ========================= -->
+
+<div class="bg-animation">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+<!-- ========================= -->
+<!-- Header -->
+<!-- ========================= -->
+
+<header>
+
+<div class="logo-box">
+
+<h1>
+
+🚀 DEEPAK DABI
+
+</h1>
+
+<p>
+
+SMART PARTS AI COMMAND CENTER V10
+
+</p>
+
 </div>
 
 <div class="header-buttons">
-<button id="exportCSV">📤 Export CSV</button>
-<button id="printData">🖨 Print</button>
-<button id="darkModeBtn">🌙</button>
+
+<button id="darkModeBtn">
+
+🌙 Dark
+
+</button>
+
+<button id="installBtn">
+
+📲 Install App
+
+</button>
+
+<button id="backupBtn">
+
+💾 Backup
+
+</button>
+
+<button id="restoreBtn">
+
+📂 Restore
+
+</button>
+
 </div>
 
 </header>
 
+<!-- ========================= -->
+<!-- Dashboard -->
+<!-- ========================= -->
+
 <section class="dashboard">
 
-<div class="card">
-<h2 id="totalOrders">0</h2>
-<p>Total Orders</p>
+<div class="card total">
+
+<h2 id="totalOrders">
+
+0
+
+</h2>
+
+<p>
+
+Total Orders
+
+</p>
+
 </div>
 
-<div class="card">
-<h2 id="pendingOrders">0</h2>
-<p>Pending</p>
+<div class="card pending">
+
+<h2 id="pendingOrders">
+
+0
+
+</h2>
+
+<p>
+
+Pending
+
+</p>
+
 </div>
 
-<div class="card">
-<h2 id="orderedOrders">0</h2>
-<p>Ordered</p>
+<div class="card ordered">
+
+<h2 id="orderedOrders">
+
+0
+
+</h2>
+
+<p>
+
+Ordered
+
+</p>
+
 </div>
 
-<div class="card">
-<h2 id="deliveredOrders">0</h2>
-<p>Delivered</p>
+<div class="card delivered">
+
+<h2 id="deliveredOrders">
+
+0
+
+</h2>
+
+<p>
+
+Delivered
+
+</p>
+
 </div>
 
-<div class="card">
-<h2 id="cancelledOrders">0</h2>
-<p>Cancelled</p>
+<div class="card today">
+
+<h2 id="todayOrders">
+
+0
+
+</h2>
+
+<p>
+
+Today's Orders
+
+</p>
+
+</div>
+
+<div class="card success">
+
+<h2 id="successRate">
+
+0%
+
+</h2>
+
+<p>
+
+Delivery Success
+
+</p>
+
 </div>
 
 </section>
 
-<section class="search-area">
+<!-- Part 2 starts below -->
+  <!-- ========================= -->
+<!-- Smart Control Panel -->
+<!-- ========================= -->
+
+<section class="control-panel">
+
+<div class="search-box">
 
 <input
 type="text"
 id="searchInput"
-placeholder="Search by DMS Order, Customer, Mobile or Part Number">
+placeholder="🔍 Search by DMS / Customer / Mobile / Part Number">
+
+</div>
+
+<div class="filters">
 
 <select id="statusFilter">
+
 <option value="">All Status</option>
-<option value="Pending">Pending</option>
-<option value="Ordered">Ordered</option>
-<option value="Delivered">Delivered</option>
-<option value="Cancelled">Cancelled</option>
+
+<option value="Pending">🟡 Pending</option>
+
+<option value="Ordered">🔵 Ordered</option>
+
+<option value="Delivered">🟢 Delivered</option>
+
+<option value="Cancelled">🔴 Cancelled</option>
+
 </select>
 
-</section>
+<input
+type="date"
+id="dateFilter">
 
-<section class="order-form">
+<button id="clearFilterBtn">
 
-<h2>➕ New Parts Order</h2>
+❌ Clear Filters
 
-<form id="orderForm">
-
-<input type="text" id="dmsOrderNo" placeholder="DMS Order No." required>
-
-<input type="text" id="customerName" placeholder="Customer Name" required>
-
-<input type="tel" id="mobile" placeholder="Mobile Number" maxlength="10" required>
-
-<input type="text" id="vehicleModel" placeholder="Vehicle Model">
-
-<input type="text" id="partNumber" placeholder="Part Number" required>
-
-<input type="text" id="partName" placeholder="Part Name" required>
-
-<input type="number" id="quantity" placeholder="Quantity" value="1" min="1">
-
-<input type="date" id="orderDate">
-
-<input type="date" id="expectedDate">
-
-<select id="status">
-<option value="Pending">Pending</option>
-<option value="Ordered">Ordered</option>
-<option value="Delivered">Delivered</option>
-<option value="Cancelled">Cancelled</option>
-</select>
-
-<textarea id="remarks" placeholder="Remarks"></textarea>
-
-<button type="submit">
-💾 Save Order
 </button>
 
-</form>
-
-</section>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deepak Parts Order Manager</title>
-
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
-  <meta name="theme-color" content="#d71920">
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-<header class="header">
-
-<div class="logo">
-<h1>📦 Deepak Parts Order Manager</h1>
-<p>Offline Spare Parts Order Tracking System</p>
-</div>
-
-<div class="header-buttons">
-<button id="exportCSV">📤 Export CSV</button>
-<button id="printData">🖨 Print</button>
-<button id="darkModeBtn">🌙</button>
-</div>
-
-</header>
-
-<section class="dashboard">
-
-<div class="card">
-<h2 id="totalOrders">0</h2>
-<p>Total Orders</p>
-</div>
-
-<div class="card">
-<h2 id="pendingOrders">0</h2>
-<p>Pending</p>
-</div>
-
-<div class="card">
-<h2 id="orderedOrders">0</h2>
-<p>Ordered</p>
-</div>
-
-<div class="card">
-<h2 id="deliveredOrders">0</h2>
-<p>Delivered</p>
-</div>
-
-<div class="card">
-<h2 id="cancelledOrders">0</h2>
-<p>Cancelled</p>
 </div>
 
 </section>
 
-<section class="search-area">
+<!-- ========================= -->
+<!-- New Order Form -->
+<!-- ========================= -->
+
+<section class="form-section">
+
+<div class="form-card">
+
+<h2>
+
+📦 NEW DMS ORDER
+
+</h2>
+
+<div class="form-grid">
+
+<div>
+
+<label>DMS Order Number</label>
 
 <input
 type="text"
-id="searchInput"
-placeholder="Search by DMS Order, Customer, Mobile or Part Number">
+id="dmsOrder"
+placeholder="Enter DMS Order Number">
 
-<select id="statusFilter">
-<option value="">All Status</option>
-<option value="Pending">Pending</option>
-<option value="Ordered">Ordered</option>
-<option value="Delivered">Delivered</option>
-<option value="Cancelled">Cancelled</option>
-</select>
-
-</section>
-
-<section class="order-form">
-
-<h2>➕ New Parts Order</h2>
-
-<form id="orderForm">
-
-<input type="text" id="dmsOrderNo" placeholder="DMS Order No." required>
-
-<input type="text" id="customerName" placeholder="Customer Name" required>
-
-<input type="tel" id="mobile" placeholder="Mobile Number" maxlength="10" required>
-
-<input type="text" id="vehicleModel" placeholder="Vehicle Model">
-
-<input type="text" id="partNumber" placeholder="Part Number" required>
-
-<input type="text" id="partName" placeholder="Part Name" required>
-
-<input type="number" id="quantity" placeholder="Quantity" value="1" min="1">
-
-<input type="date" id="orderDate">
-
-<input type="date" id="expectedDate">
-
-<select id="status">
-<option value="Pending">Pending</option>
-<option value="Ordered">Ordered</option>
-<option value="Delivered">Delivered</option>
-<option value="Cancelled">Cancelled</option>
-</select>
-
-<textarea id="remarks" placeholder="Remarks"></textarea>
-
-<button type="submit">
-💾 Save Order
-</button>
-
-</form>
-
-</section>
-<!-- Loading Overlay -->
-<div id="loadingScreen" class="loading-screen" style="display:none;">
-    <div class="loader"></div>
-    <p>Loading...</p>
 </div>
 
-<!-- Toast Notification -->
-<div id="toast" class="toast"></div>
+<div>
 
-<!-- JavaScript -->
+<label>Customer Name</label>
+
+<input
+type="text"
+id="customerName"
+placeholder="Customer Name">
+
+</div>
+
+<div>
+
+<label>Mobile Number</label>
+
+<input
+type="tel"
+id="mobileNumber"
+placeholder="9876543210">
+
+</div>
+
+<div>
+
+<label>Vehicle Model</label>
+
+<input
+type="text"
+id="vehicleModel"
+placeholder="VIDA V2 / Splendor / Xtreme">
+
+</div>
+
+<div>
+
+<label>Part Number</label>
+
+<div class="scan-group">
+
+<input
+type="text"
+id="partNumber"
+placeholder="Scan or Enter Part Number">
+
+<button
+type="button"
+id="scanBtn">
+
+📷
+
+</button>
+
+</div>
+
+</div>
+
+<div>
+
+<label>Part Name</label>
+
+<input
+type="text"
+id="partName"
+placeholder="Part Name">
+
+</div>
+
+<div>
+
+<label>Quantity</label>
+
+<input
+type="number"
+id="quantity"
+value="1"
+min="1">
+
+</div>
+
+<div>
+
+<label>Order Date</label>
+
+<input
+type="date"
+id="orderDate">
+
+</div>
+
+<div>
+
+<label>Expected Date</label>
+
+<input
+type="date"
+id="expectedDate">
+
+</div>
+
+<div>
+
+<label>Status</label>
+
+<select id="status">
+
+<option>Pending</option>
+<option>Ordered</option>
+<option>Delivered</option>
+<option>Cancelled</option>
+
+</select>
+
+</div>
+
+<div class="full-width">
+
+<label>Remarks</label>
+
+<textarea
+id="remarks"
+rows="4"
+placeholder="Write remarks..."></textarea>
+
+</div>
+
+</div>
+
+<div class="action-buttons">
+
+<button id="voiceBtn">
+
+🎤 Voice Entry
+
+</button>
+
+<button id="saveOrderBtn">
+
+💾 Save Order
+
+</button>
+
+<button id="resetFormBtn">
+
+🔄 Reset
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===== Part 3 Starts Below ===== -->
+  <!-- ========================================= -->
+<!-- SMART ACTION TOOLBAR -->
+<!-- ========================================= -->
+
+<section class="toolbar">
+
+<button id="exportCSVBtn" class="primary-btn">
+📤 Export CSV
+</button>
+
+<button id="printBtn" class="secondary-btn">
+🖨 Print
+</button>
+
+<button id="backupJSONBtn" class="secondary-btn">
+💾 Backup JSON
+</button>
+
+<button id="restoreJSONBtn" class="secondary-btn">
+📂 Restore
+</button>
+
+<button id="deleteAllBtn" class="danger-btn">
+🗑 Delete All
+</button>
+
+</section>
+
+<!-- ========================================= -->
+<!-- LIVE ORDERS -->
+<!-- ========================================= -->
+
+<section class="table-section">
+
+<div class="table-header">
+
+<h2>
+📦 LIVE DMS ORDERS
+</h2>
+
+<span id="liveClock"></span>
+
+</div>
+
+<div class="table-responsive">
+
+<table id="ordersTable">
+
+<thead>
+
+<tr>
+
+<th>#</th>
+
+<th>DMS Order</th>
+
+<th>Customer</th>
+
+<th>Mobile</th>
+
+<th>Vehicle</th>
+
+<th>Part No.</th>
+
+<th>Part Name</th>
+
+<th>Qty</th>
+
+<th>Order Date</th>
+
+<th>Expected</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="ordersBody">
+
+<!-- JavaScript Data -->
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- EDIT ORDER MODAL -->
+<!-- ========================================= -->
+
+<div id="editModal" class="modal">
+
+<div class="modal-content">
+
+<span id="closeModal">
+
+&times;
+
+</span>
+
+<h2>
+
+✏️ Edit Order
+
+</h2>
+
+<input id="editDms" placeholder="DMS Order">
+
+<input id="editCustomer" placeholder="Customer Name">
+
+<input id="editMobile" placeholder="Mobile">
+
+<input id="editVehicle" placeholder="Vehicle">
+
+<input id="editPartNumber" placeholder="Part Number">
+
+<input id="editPartName" placeholder="Part Name">
+
+<input id="editQuantity" type="number">
+
+<input id="editOrderDate" type="date">
+
+<input id="editExpectedDate" type="date">
+
+<select id="editStatus">
+
+<option>Pending</option>
+
+<option>Ordered</option>
+
+<option>Delivered</option>
+
+<option>Cancelled</option>
+
+</select>
+
+<textarea
+id="editRemarks"
+rows="4"
+placeholder="Remarks"></textarea>
+
+<button id="updateOrderBtn">
+
+✅ Update Order
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- DELETE CONFIRM MODAL -->
+<!-- ========================================= -->
+
+<div id="deleteModal" class="modal">
+
+<div class="modal-content small">
+
+<h3>
+
+Delete this order?
+
+</h3>
+
+<p>
+
+This action cannot be undone.
+
+</p>
+
+<div class="modal-actions">
+
+<button id="confirmDeleteBtn">
+
+🗑 Delete
+
+</button>
+
+<button id="cancelDeleteBtn">
+
+Cancel
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- TOAST -->
+<!-- ========================================= -->
+
+<div id="toast">
+
+✔ Success
+
+</div>
+
+<!-- ===== index.html Part 4 starts below ===== -->
+  <!-- ========================================= -->
+<!-- FLOATING ACTION BUTTONS -->
+<!-- ========================================= -->
+
+<div class="fab-container">
+
+<button id="fabAdd" class="fab" title="New Order">
+➕
+</button>
+
+<button id="fabVoice" class="fab" title="Voice Entry">
+🎤
+</button>
+
+<button id="fabScan" class="fab" title="Barcode Scanner">
+📷
+</button>
+
+<button id="fabWhatsapp" class="fab" title="WhatsApp">
+💬
+</button>
+
+</div>
+
+<!-- ========================================= -->
+<!-- AI ASSISTANT PANEL -->
+<!-- ========================================= -->
+
+<section class="ai-panel">
+
+<div class="ai-card">
+
+<div class="ai-header">
+
+<h2>
+🤖 Deepak AI Assistant
+</h2>
+
+<span class="online-dot"></span>
+
+</div>
+
+<div id="aiMessages" class="ai-messages">
+
+<div class="ai-message">
+
+👋 Welcome Deepak Dabi
+
+</div>
+
+<div class="ai-message">
+
+📦 Ready to manage your spare parts orders.
+
+</div>
+
+</div>
+
+<div class="ai-input">
+
+<input
+type="text"
+id="aiPrompt"
+placeholder="Ask AI... e.g. Show pending orders">
+
+<button id="aiSendBtn">
+
+Send
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- ANALYTICS -->
+<!-- ========================================= -->
+
+<section class="analytics">
+
+<div class="analytics-card">
+
+<h3>
+📊 Weekly Orders
+</h3>
+
+<canvas id="weeklyChart"></canvas>
+
+</div>
+
+<div class="analytics-card">
+
+<h3>
+📈 Status Distribution
+</h3>
+
+<canvas id="statusChart"></canvas>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- NOTIFICATION PANEL -->
+<!-- ========================================= -->
+
+<section class="notification-panel">
+
+<h2>
+
+🔔 Smart Notifications
+
+</h2>
+
+<ul id="notificationList">
+
+<li>No notifications.</li>
+
+</ul>
+
+</section>
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer>
+
+<div class="footer-left">
+
+<h3>
+
+🚀 Deepak Dabi Smart Parts AI V10
+
+</h3>
+
+<p>
+
+Offline • PWA • Local Storage • WhatsApp Ready
+
+</p>
+
+</div>
+
+<div class="footer-right">
+
+<button id="aboutBtn">
+
+ℹ About
+
+</button>
+
+<button id="helpBtn">
+
+❓ Help
+
+</button>
+
+</div>
+
+</footer>
+
+<!-- ========================================= -->
+<!-- INSTALL APP POPUP -->
+<!-- ========================================= -->
+
+<div id="installPopup" class="install-popup">
+
+<div class="install-card">
+
+<h2>
+
+📲 Install App
+
+</h2>
+
+<p>
+
+Install Deepak Dabi Smart Parts AI V10 on your device for faster offline access.
+
+</p>
+
+<button id="installNowBtn">
+
+Install Now
+
+</button>
+
+<button id="installLaterBtn">
+
+Later
+
+</button>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script.js"></script>
-
-<!-- Register Service Worker -->
-<script>
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker.register("service-worker.js")
-        .then(() => console.log("Service Worker Registered"))
-        .catch(err => console.log(err));
-    });
-}
-</script>
-
 </body>
 </html>
